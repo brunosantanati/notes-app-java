@@ -9,6 +9,7 @@ import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
@@ -93,6 +94,18 @@ public class NotesHandler {
 	
 	public void showAllNote() throws FileNotFoundException {
 		getAllNotes().forEach(System.out::println);
+	}
+	
+	public void showNoteByTitle(String title) throws FileNotFoundException {
+		Optional<Note> optional = getAllNotes().stream()
+			.filter(n -> n.getTitle().equals(title))
+			.findAny();
+		
+		if(optional.isEmpty()) {
+			System.out.println("Note [" + title + "] not found!");
+		}else {
+			System.out.println("Note data: " + optional.get().toString());
+		}
 	}
 	
 	public List<Note> getAllNotes() throws FileNotFoundException {
