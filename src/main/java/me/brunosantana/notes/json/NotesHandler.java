@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -25,12 +23,9 @@ public class NotesHandler {
 	Gson gson;
 	String jsonFilePath;
 	
-	public NotesHandler() throws IOException {
-		gson = new Gson();
-
-    	InputStream is = NotesHandler.class.getResourceAsStream("/config-storage-path.txt");
-    	BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-    	jsonFilePath = reader.readLine();
+	public NotesHandler(String jsonFilePath) throws IOException {
+		this.gson = new Gson();
+    	this.jsonFilePath = jsonFilePath;
 	}
 	
 	public void addNote(Note note) throws JsonIOException, IOException {		
