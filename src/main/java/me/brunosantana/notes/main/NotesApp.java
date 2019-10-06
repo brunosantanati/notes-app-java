@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.google.gson.JsonIOException;
 
 import me.brunosantana.notes.json.NotesHandler;
-import me.brunosantana.notes.model.Note;
+import me.brunosantana.notes.menu.MenuHandler;
 
 public class NotesApp {
 
@@ -15,14 +15,10 @@ public class NotesApp {
 			try {
 				
 				String jsonFilePath = args[0];
-				
-				Note note = new Note("note5", "this is my note");
-				
 				NotesHandler notesHandler = new NotesHandler(jsonFilePath);
-				notesHandler.addNote(note);
-				notesHandler.removeNote("note4");
-				notesHandler.editNote("note5", "Edited note! Uhu");
-				notesHandler.showAllNote();
+				
+				MenuHandler menuHandler = new MenuHandler();
+				menuHandler.showMenu(notesHandler);
 				
 			} catch (JsonIOException e) {
 				e.printStackTrace();
