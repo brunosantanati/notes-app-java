@@ -1,8 +1,7 @@
 package me.brunosantana.notes.main;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import com.google.gson.JsonIOException;
 
 import me.brunosantana.notes.json.NotesHandler;
 import me.brunosantana.notes.menu.MenuHandler;
@@ -20,7 +19,7 @@ public class NotesApp {
 				MenuHandler menuHandler = new MenuHandler();
 				menuHandler.showMenu(notesHandler);
 				
-			} catch (JsonIOException e) {
+			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();

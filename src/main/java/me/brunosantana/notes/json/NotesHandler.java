@@ -13,7 +13,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonIOException;
 import com.google.gson.reflect.TypeToken;
 
 import me.brunosantana.notes.filesystem.FileSystemHandler;
@@ -24,12 +23,12 @@ public class NotesHandler {
 	Gson gson;
 	String jsonFilePath;
 	
-	public NotesHandler(String jsonFilePath) throws IOException {
+	public NotesHandler(String jsonFilePath) {
 		this.gson = new Gson();
     	this.jsonFilePath = jsonFilePath;
 	}
 	
-	public void addNote(Note note) throws JsonIOException, IOException {		
+	public void addNote(Note note) throws IOException {		
 		List<Note> notes = getAllNotes();
 		
 		if(checkIfNoteExist(note.getTitle(), notes)) {			

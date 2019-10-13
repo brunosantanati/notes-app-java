@@ -4,14 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-import com.google.gson.JsonIOException;
-
 import me.brunosantana.notes.json.NotesHandler;
 import me.brunosantana.notes.model.Note;
 
 public class MenuHandler {
 	
-	public void showMenu(NotesHandler notesHandler) throws JsonIOException, IOException {
+	public void showMenu(NotesHandler notesHandler) throws FileNotFoundException, IOException {
 		
 		clearScreen();
 		
