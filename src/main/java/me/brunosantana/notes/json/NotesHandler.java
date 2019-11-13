@@ -110,7 +110,6 @@ public class NotesHandler {
 	public List<Note> getAllNotes() throws FileNotFoundException {
 		if (jsonFileExists()) {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(jsonFilePath));
-			Gson gson = new Gson();
 			Type type = new TypeToken<ArrayList<Note>>() {}.getType();
 			ArrayList<Note> list = gson.fromJson(bufferedReader, type);
 			return list;
